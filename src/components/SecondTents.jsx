@@ -1,99 +1,100 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const SecondTents = () => {
 
 
-    return (
-        <div>
-            <header className="flex items-center justify-between p-4 bg-white shadow-md border-b border-gray-200">
-                {/* Logo */}
-                <div className="flex items-center space-x-2">
-                    <img src="src/assets/homme/Camphaven.png" alt="Logo" className="w-17 h-12" />
+  return (
+    <div>
+      <header className="flex items-center justify-between p-4 bg-white shadow-md border-b border-gray-200">
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
+          <img src="src/assets/homme/Camphaven.png" alt="Logo" className="w-17 h-12" />
+        </div>
+
+        {/* Search Bar */}
+        <div className="flex-grow mx-5 text-lg">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search products"
+              className="w-full py-2 pl-12 pr-4 border-2 border-gray-300 rounded-lg bg-gray-100 text-gray-600 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+            <i className="fas fa-search absolute top-1/2 transform -translate-y-1/2 left-4 text-gray-500"></i>
+          </div>
+        </div>
+
+        {/* User Icon and Basket */}
+        <div className="flex items-center space-x-6 text-lg">
+          {/* Profile Icon */}
+          <div className="relative">
+            <button onClick={() => toggleVisibility('dropdown')}>
+              <div className="relative flex items-center justify-center w-[50px] h-10 rounded-xl text-gray-600 hover:bg-blue-200">
+                <i className="fas fa-user-circle mr-1 text-2xl"></i>
+                <i className="fa-solid fa-caret-down"></i>
+              </div>
+            </button>
+            {/* Dropdown Menu */}
+            <div
+              id="dropdown"
+              className="hidden absolute left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+            >
+              <div className="p-4 border-b">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
+                    <i className="far fa-user text-gray-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-800">Miker</p>
+                    <p className="text-sm text-gray-500">View your profile</p>
+                  </div>
                 </div>
+              </div>
+              <div className="py-2">
+                <a
+                  href="./myProfile.html"
+                  className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
+                >
+                  <i className="fas fa-user-circle"></i>
+                  <span className="ml-3">My Profile</span>
+                </a>
+                <a
+                  href="./History.html"
+                  className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
+                >
+                  <i className="far fa-file-alt w-5"></i>
+                  <span className="ml-3">Purchase History</span>
+                </a>
+              </div>
+              <div className="py-2 border-t">
+                <a
+                  href=""
+                  className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
+                >
+                  <i className="fas fa-sign-out-alt w-5"></i>
+                  <span className="ml-3">Sign Out</span>
+                </a>
+              </div>
+            </div>
+          </div>
 
-                {/* Search Bar */}
-                <div className="flex-grow mx-5 text-lg">
-                    <div className="relative">
-                        <input
-                            type="text"
-                            placeholder="Search products"
-                            className="w-full py-2 pl-12 pr-4 border-2 border-gray-300 rounded-lg bg-gray-100 text-gray-600 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
-                        />
-                        <i className="fas fa-search absolute top-1/2 transform -translate-y-1/2 left-4 text-gray-500"></i>
-                    </div>
-                </div>
+          <div className="flex items-center text-gray-700">
+            <span>Basket / $30.00</span>
+            <a href="./checkout1.html">
+              <i className="fas fa-shopping-cart ml-2">
+                <span className="absolute top-4 inline-flex px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
+                  1
+                </span>
+              </i>
+            </a>
+          </div>
+          <button className="px-6 py-2 bg-[#019B7E] text-white rounded-full hover:bg-green-700">
+            CHECKOUT
+          </button>
+        </div>
+      </header>
 
-                {/* User Icon and Basket */}
-                <div className="flex items-center space-x-6 text-lg">
-                    {/* Profile Icon */}
-                    <div className="relative">
-                        <button onClick={() => toggleVisibility('dropdown')}>
-                            <div className="relative flex items-center justify-center w-[50px] h-10 rounded-xl text-gray-600 hover:bg-blue-200">
-                                <i className="fas fa-user-circle mr-1 text-2xl"></i>
-                                <i className="fa-solid fa-caret-down"></i>
-                            </div>
-                        </button>
-                        {/* Dropdown Menu */}
-                        <div
-                            id="dropdown"
-                            className="hidden absolute left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-                        >
-                            <div className="p-4 border-b">
-                                <div className="flex items-center space-x-3">
-                                    <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
-                                        <i className="far fa-user text-gray-600 text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <p className="font-medium text-gray-800">Miker</p>
-                                        <p className="text-sm text-gray-500">View your profile</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="py-2">
-                                <a
-                                    href="./myProfile.html"
-                                    className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
-                                >
-                                    <i className="fas fa-user-circle"></i>
-                                    <span className="ml-3">My Profile</span>
-                                </a>
-                                <a
-                                    href="./History.html"
-                                    className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
-                                >
-                                    <i className="far fa-file-alt w-5"></i>
-                                    <span className="ml-3">Purchase History</span>
-                                </a>
-                            </div>
-                            <div className="py-2 border-t">
-                                <a
-                                    href=""
-                                    className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
-                                >
-                                    <i className="fas fa-sign-out-alt w-5"></i>
-                                    <span className="ml-3">Sign Out</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="flex items-center text-gray-700">
-                        <span>Basket / $30.00</span>
-                        <a href="./checkout1.html">
-                            <i className="fas fa-shopping-cart ml-2">
-                                <span className="absolute top-4 inline-flex px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
-                                    1
-                                </span>
-                            </i>
-                        </a>
-                    </div>
-                    <button className="px-6 py-2 bg-[#019B7E] text-white rounded-full hover:bg-green-700">
-                        CHECKOUT
-                    </button>
-                </div>
-            </header>
-
-            <nav className="bg-white py-2">
+      <nav className="bg-white py-2">
         <div className="flex justify-center space-x-2 text-xs text-gray-300 font-semibold tracking-wide">
           <div className="relative group z-10">
             <button className="font-lato text-[10px] focus:outline-none text-[#666666D9] hover:text-black">
@@ -1401,203 +1402,203 @@ const SecondTents = () => {
         </div>
       </nav>
 
-            {/* <!-- Header --> */}
-            <div className="flex justify-between items-center mb-6">
-                <button
-                    className="flex items-center text-[#777777] font-bold border border-gray-300 px-4 py-2 text-sm hover:bg-gray-100"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 mr-2"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M3 5h18M3 10h18M3 15h18"
-                        />
-                    </svg>
-                    Filter
-                </button>
+      {/* <!-- Header --> */}
+      <div className="flex justify-between items-center mb-6">
+        <button
+          className="flex items-center text-[#777777] font-bold border border-gray-300 px-4 py-2 text-sm hover:bg-gray-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3 5h18M3 10h18M3 15h18"
+            />
+          </svg>
+          Filter
+        </button>
 
-                <div className="flex space-x-2">
-                    <div className="text-sm text-gray-500 mt-2">
-                        Showing all <span className="font-medium text-gray-700">13 results</span>
+        <div className="flex space-x-2">
+          <div className="text-sm text-gray-500 mt-2">
+            Showing all <span className="font-medium text-gray-700">13 results</span>
 
-                    </div>
-                    <div>
-                        <select
-                            className="border bg-white h-10 border-[#DDDDDD] text-[#333333] text-sm px-4 py-2 rounded-md focus:outline-none">
-                            <option>Sort by latest</option>
-                            <option>Sort by price: low to high</option>
-                            <option>Sort by price: high to low</option>
-                        </select>
-                    </div>
-
-                </div>
-            </div>
-
-            {/* <!-- Product Grid --> */}
-            <div className="grid grid-cols-4 gap-6 p-4">
-
-                {/* <!-- Product Card --> */}
-                <a href="./tent_Detail.html">
-                    <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 ">
-                        <img src="src/assets/tentshome/tents_item/p1.png" alt="Easy Camp Spirit"
-                            className="mb-4 w-full h-[170px] " />
-                        <h3 className="text-[#019B7E] text-[11px] mb-2">Easy Camp Spirit 200 2 Man Tent Rustic Green</h3>
-                        <p className="text-black text-sm font-bold ">$54.95</p>
-                        <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300">
-                            ADD TO BASKET
-                        </button>
-                    </div>
-                </a>
-
-                {/* <!-- Product Card --> */}
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 ">
-                    <img src="src/assets/tentshome/tents_item/p1.png" alt="Easy Camp Quasar"
-                        className="mb-4 w-full h-[170px] " />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Easy Camp Quasar 200 2 Man Tent Rustic Green</h3>
-                    <p className="text-black text-sm font-bold">$49.95</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-                {/* <!-- Product Card --> */}
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 ">
-                    <img src="src/assets/tentshome/tents_item/p3.png" alt="Coleman Darwin"
-                        className="mb-4 w-full h-[175px] " />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Coleman Darwin 2 2 Man Tent</h3>
-                    <p className="text-black text-sm font-bold">$59.95</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-                {/* <!-- Product Card --> */}
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 ">
-                    <img src="src/assets/tentshome/tents_item/p4.png" alt="Robens Arch" className="mb-4 w-full h-[175px] " />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Robens Arch 2 Man Tent</h3>
-                    <p className="text-black text-sm font-bold">$59.95</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-                {/* <!-- Product Card --> */}
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
-                    <img src="src/assets/tentshome/tents_item/p5.png" alt="Outwell Free Standing Inner"
-                        className="mb-4 w-full h-[175px] " />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Outwell Free Standing Inner L </h3>
-                    <p className="text-black text-sm font-bold">$74.95</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-                {/* <!-- Product Card --> */}
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5 ">
-                    <img src="src/assets/tentshome/tents_item/p6.png" alt="Jack Wolfskin Skyrocket II"
-                        className="mb-4 w-full h-[175px] " />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
-                    <p className="text-black text-sm font-bold">$144.95</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-                {/* <!-- Product Card --> */}
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5 ">
-                    <img src="src/assets/tentshome/tents_item/p7.png" alt="Jack Wolfskin Eclipse II"
-                        className="mb-4 w-full h-[175px] " />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Eclipse II - 2 Man Tent </h3>
-                    <p className="text-black text-sm font-bold">$155.00</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-                {/* <!-- Product Card --> */}
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
-                    <img src="src/assets/tentshome/tents_item/p8.png" alt="Jack Wolfskin Skyrocket II"
-                        className="mb-4 w-full h-[175px] " />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
-                    <p className="text-black text-sm font-bold">$144.95</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
-                    <img src="src/assets/tentshome/tents_item/p9.png" alt="Jack Wolfskin Skyrocket II"
-                        className="mb-4 w-full h-[175px] " />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
-                    <p className="text-black text-sm font-bold">$144.95</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
-                    <img src="src/assets/tentshome/tents_item/p10.png" alt="Jack Wolfskin Skyrocket II"
-                        className="mb-4 w-full h-[175px]" />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
-                    <p className="text-black text-sm font-bold">$144.95</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
-                    <img src="src/assets/tentshome/tents_item/p11.png" alt="Jack Wolfskin Skyrocket II"
-                        className="mb-4 w-full h-[175px] " />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
-                    <p className="text-black text-sm font-bold">$144.95</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
-                    <img src="src/assets/tentshome/tents_item/p12.png" alt="Jack Wolfskin Skyrocket II"
-                        className="mb-4 w-full h-[175px] " />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
-                    <p className="text-black text-sm font-bold">$144.95</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-                <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
-                    <img src="src/assets/tentshome/tents_item/p13.png" alt="Jack Wolfskin Skyrocket II"
-                        className="mb-4 w-full h-[175px] " />
-                    <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
-                    <p className="text-black text-sm font-bold">$144.95</p>
-                    <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
-                        ADD TO BASKET
-                    </button>
-                </div>
-            </div>
-            <footer className="bg-gray-300 py-6 mt-28 text-[#666666]">
-      <div className="container mx-auto">
-        <nav className="mb-4 ml-10">
-          <div>
-            <a href="#" className="mx-2 hover:text-[#019B7E]">Terms & Conditions</a>
-            <a href="#" className="mx-2 hover:text-[#019B7E]">Privacy Policy</a>
-            <a href="#" className="mx-2 hover:text-[#019B7E]">Returns Policy</a>
-            <a href="#" className="mx-2 hover:text-[#019B7E]">Cookie Policy</a>
-            <a href="#" className="mx-2 hover:text-[#019B7E]">Contact Us</a>
-            <a href="#" className="mx-2 hover:text-[#019B7E]">Facebook</a>
-            <a href="#" className="mx-2 hover:text-[#019B7E]">Instagram</a>
-            <a href="#" className="mx-2 hover:text-[#019B7E]">Ultimate Guide to Camping</a>
-            <a href="#" className="mx-2 hover:text-[#019B7E]">Delivery Charges</a>
-          </div>
-          <div className="flex justify-end space-x-8 mr-10 ">
-            <a href="" className="text-4xl hover:text-[#019B7E]"><i className="fa-brands fa-cc-visa"></i></a>
-            <a href="" className="text-4xl hover:text-[#019B7E]"><i className="fa-brands fa-cc-paypal"></i></a>
-            <a href="" className="text-4xl hover:text-[#019B7E]"><i className="fa-brands fa-cc-mastercard"></i></a>
           </div>
           <div>
-            <p className=" ml-2">Copyright 2024 © Camp Haven</p>
+            <select
+              className="border bg-white h-10 border-[#DDDDDD] text-[#333333] text-sm px-4 py-2 rounded-md focus:outline-none">
+              <option>Sort by latest</option>
+              <option>Sort by price: low to high</option>
+              <option>Sort by price: high to low</option>
+            </select>
           </div>
-        </nav>
-      </div>
-    </footer>
+
         </div>
-    )
+      </div>
+
+      {/* <!-- Product Grid --> */}
+      <div className="grid grid-cols-4 gap-6 p-4">
+
+        {/* <!-- Product Card --> */}
+        <Link to={"/detail-tents"}>
+          <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 ">
+            <img src="src/assets/tentshome/tents_item/p1.png" alt="Easy Camp Spirit"
+              className="mb-4 w-full h-[170px] " />
+            <h3 className="text-[#019B7E] text-[11px] mb-2">Easy Camp Spirit 200 2 Man Tent Rustic Green</h3>
+            <p className="text-black text-sm font-bold ">$54.95</p>
+            <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300">
+              ADD TO BASKET
+            </button>
+          </div>
+        </Link>
+
+        {/* <!-- Product Card --> */}
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 ">
+          <img src="src/assets/tentshome/tents_item/p1.png" alt="Easy Camp Quasar"
+            className="mb-4 w-full h-[170px] " />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Easy Camp Quasar 200 2 Man Tent Rustic Green</h3>
+          <p className="text-black text-sm font-bold">$49.95</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+        {/* <!-- Product Card --> */}
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 ">
+          <img src="src/assets/tentshome/tents_item/p3.png" alt="Coleman Darwin"
+            className="mb-4 w-full h-[175px] " />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Coleman Darwin 2 2 Man Tent</h3>
+          <p className="text-black text-sm font-bold">$59.95</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+        {/* <!-- Product Card --> */}
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 ">
+          <img src="src/assets/tentshome/tents_item/p4.png" alt="Robens Arch" className="mb-4 w-full h-[175px] " />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Robens Arch 2 Man Tent</h3>
+          <p className="text-black text-sm font-bold">$59.95</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+        {/* <!-- Product Card --> */}
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
+          <img src="src/assets/tentshome/tents_item/p5.png" alt="Outwell Free Standing Inner"
+            className="mb-4 w-full h-[175px] " />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Outwell Free Standing Inner L </h3>
+          <p className="text-black text-sm font-bold">$74.95</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+        {/* <!-- Product Card --> */}
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5 ">
+          <img src="src/assets/tentshome/tents_item/p6.png" alt="Jack Wolfskin Skyrocket II"
+            className="mb-4 w-full h-[175px] " />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
+          <p className="text-black text-sm font-bold">$144.95</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+        {/* <!-- Product Card --> */}
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5 ">
+          <img src="src/assets/tentshome/tents_item/p7.png" alt="Jack Wolfskin Eclipse II"
+            className="mb-4 w-full h-[175px] " />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Eclipse II - 2 Man Tent </h3>
+          <p className="text-black text-sm font-bold">$155.00</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+        {/* <!-- Product Card --> */}
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
+          <img src="src/assets/tentshome/tents_item/p8.png" alt="Jack Wolfskin Skyrocket II"
+            className="mb-4 w-full h-[175px] " />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
+          <p className="text-black text-sm font-bold">$144.95</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
+          <img src="src/assets/tentshome/tents_item/p9.png" alt="Jack Wolfskin Skyrocket II"
+            className="mb-4 w-full h-[175px] " />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
+          <p className="text-black text-sm font-bold">$144.95</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
+          <img src="src/assets/tentshome/tents_item/p10.png" alt="Jack Wolfskin Skyrocket II"
+            className="mb-4 w-full h-[175px]" />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
+          <p className="text-black text-sm font-bold">$144.95</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
+          <img src="src/assets/tentshome/tents_item/p11.png" alt="Jack Wolfskin Skyrocket II"
+            className="mb-4 w-full h-[175px] " />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
+          <p className="text-black text-sm font-bold">$144.95</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
+          <img src="src/assets/tentshome/tents_item/p12.png" alt="Jack Wolfskin Skyrocket II"
+            className="mb-4 w-full h-[175px] " />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
+          <p className="text-black text-sm font-bold">$144.95</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+        <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-[#019B7E] transition-shadow duration-300 mt-5">
+          <img src="src/assets/tentshome/tents_item/p13.png" alt="Jack Wolfskin Skyrocket II"
+            className="mb-4 w-full h-[175px] " />
+          <h3 className="text-[#019B7E] text-[11px] mb-2">Jack Wolfskin Skyrocket II </h3>
+          <p className="text-black text-sm font-bold">$144.95</p>
+          <button className="mt-2 bg-[#019B7E] text-white text-[11px] px-4 py-2 rounded hover:bg-[#017a63] transition-colors duration-300 ">
+            ADD TO BASKET
+          </button>
+        </div>
+      </div>
+      <footer className="bg-gray-300 py-6 mt-28 text-[#666666]">
+        <div className="container mx-auto">
+          <nav className="mb-4 ml-10">
+            <div>
+              <a href="#" className="mx-2 hover:text-[#019B7E]">Terms & Conditions</a>
+              <a href="#" className="mx-2 hover:text-[#019B7E]">Privacy Policy</a>
+              <a href="#" className="mx-2 hover:text-[#019B7E]">Returns Policy</a>
+              <a href="#" className="mx-2 hover:text-[#019B7E]">Cookie Policy</a>
+              <a href="#" className="mx-2 hover:text-[#019B7E]">Contact Us</a>
+              <a href="#" className="mx-2 hover:text-[#019B7E]">Facebook</a>
+              <a href="#" className="mx-2 hover:text-[#019B7E]">Instagram</a>
+              <a href="#" className="mx-2 hover:text-[#019B7E]">Ultimate Guide to Camping</a>
+              <a href="#" className="mx-2 hover:text-[#019B7E]">Delivery Charges</a>
+            </div>
+            <div className="flex justify-end space-x-8 mr-10 ">
+              <a href="" className="text-4xl hover:text-[#019B7E]"><i className="fa-brands fa-cc-visa"></i></a>
+              <a href="" className="text-4xl hover:text-[#019B7E]"><i className="fa-brands fa-cc-paypal"></i></a>
+              <a href="" className="text-4xl hover:text-[#019B7E]"><i className="fa-brands fa-cc-mastercard"></i></a>
+            </div>
+            <div>
+              <p className=" ml-2">Copyright 2024 © Camp Haven</p>
+            </div>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  )
 }
 
 export default SecondTents;

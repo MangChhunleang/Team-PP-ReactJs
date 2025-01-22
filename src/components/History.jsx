@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const Header = ({ toggleModal }) => {
-  return (
-    <div className="w-full mx-auto">
-      <header className="flex items-center justify-between p-4 bg-white shadow-md border-b border-gray-200">
-        
-        {/* <!-- Logo --> */}
-        <a href="./home.html">
-          <div className="flex items-center space-x-2">
-            <img
-              src="src/assets/homme/Camphaven.png"
-              alt="Logo"
-              className="w-17 h-12"
-            />
-          </div>
-        </a>
+const History = () => {
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-        {/* <!-- Search Bar --> */}
+    const toggleVisibility = (event) => {
+        event.preventDefault();
+        setIsDropdownVisible(!isDropdownVisible);
+    };
+
+    return (
+        <div>
+            <header className="flex items-center justify-between p-4 bg-white shadow-md border-b border-gray-200">
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
+          <Link to={"/header-after-login"}>
+          <img
+            src="src/assets/homme/Camphaven.png"
+            alt="Logo"
+            className="w-17 h-12"
+          />
+          </Link>
+        </div>
+
+        {/* Search Bar */}
         <div className="flex-grow mx-5 text-lg">
           <div className="relative">
             <input
@@ -28,24 +35,75 @@ const Header = ({ toggleModal }) => {
           </div>
         </div>
 
-        {/* <!-- User Icon and Basket --> */}
+        {/* User Icon and Basket */}
         <div className="flex items-center space-x-6 text-lg">
-          {/* <!-- Profile Icon with onclick to toggle modal --> */}
-          <div className="flex items-center space-x-6 text-lg">
-            <i
-              id="profileIcon"
-              className="far fa-user-circle text-2xl text-gray-700 cursor-pointer"
-              onClick={toggleModal}
-            ></i>
+          {/* Profile Icon */}
+          <div className="relative">
+            <button
+              onClick={(e) => toggleVisibility(e, "dropdown")}
+              className="relative flex items-center justify-center w-[50px] h-10 bg-none-100 rounded-xl text-gray-600 hover:bg-blue-200"
+            >
+              <i className="fas fa-user-circle mr-1 text-2xl"></i>
+              <i className="fa-solid fa-caret-down"></i>
+            </button>
+
+            {/* Dropdown Menu */}
+            <div
+              id="dropdown"
+              className="hidden z-50 absolute left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg"
+            >
+              <div className="p-4 border-b">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
+                    <i className="far fa-user text-gray-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-800">Miker</p>
+                    <p className="text-sm text-gray-500">View your profile</p>
+                  </div>
+                </div>
+              </div>
+              <div className="py-2">
+                <Link to={"/profile"}
+                  className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
+                >
+                  <i className="fas fa-user-circle"></i>
+                  <span className="ml-3">My profile</span>
+                </Link>
+                <Link to={"#"}
+                  className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
+                >
+                  <i className="far fa-file-alt w-5"></i>
+                  <span className="ml-3">Purchases History</span>
+                  </Link>
+              </div>
+              <div className="py-2 border-t">
+                <Link to={"/sign-out"}
+                  className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
+                >
+                  <i className="fas fa-sign-out-alt w-5"></i>
+                  <span className="ml-3">Sign out</span>
+                  </Link>
+              </div>
+            </div>
           </div>
 
+          {/* Basket */}
           <div className="flex items-center text-gray-700">
-            <span>Basket / $0.00</span>
-            <i className="fas fa-shopping-cart ml-2"></i>
+            <span>Basket / $30.00</span>
+            <Link to="/check-card">
+              <i className="fas fa-shopping-cart ml-2">
+                <span className="absolute mr-10 top-4 inline-flex px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
+                  1
+                </span>
+              </i>
+            </Link>
           </div>
-          <button className="px-6 py-2 bg-[#019B7E] text-white rounded-full hover:bg-green-700">
-            CHECKOUT
-          </button>
+          <Link to={"/order-summary1"}>
+            <button className="px-6 py-2 bg-[#019B7E] text-white rounded-full hover:bg-green-700">
+              CHECKOUT
+            </button>
+            </Link>
         </div>
       </header>
       <nav className="bg-white py-2">
@@ -1355,8 +1413,57 @@ const Header = ({ toggleModal }) => {
           </div>
         </div>
       </nav>
-    </div>
-  );
+            {/* Main Content */}
+            <div className="flex w-full mr-36 bg-white text-black">
+                {/* Left Sidebar */}
+                <div className="w-1/3 bg-white bg-opacity-5 text-black">
+                    <div className="bg-white p-6 py-4 border-b border-black w-full ml-6 mt-11">
+                        <div className="flex items-center space-x-4 mb-6">
+                            <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
+                                <i className="far fa-user text-gray-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h2 className="text-sm font-semibold">Mike</h2>
+                                <p className="text-xs">MEMBER ACCOUNT NO: 2094137423380</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <nav className="space-y-4 ml-8 mt-8">
+                        <button className="flex items-center justify-center w-[130px] h-10 bg-none-100 rounded-xl text-gray-600 hover:bg-blue-200">
+                            <Link to="/profile" className="flex items-center space-x-2">
+                                <i className="fas fa-user-circle"></i>
+                                <span>My profile</span>
+                            </Link>
+                        </button>
+                        <button className="flex items-center justify-center w-[200px] h-10 bg-none-100 rounded-xl text-gray-600 hover:bg-blue-200">
+                            <Link to="/history" className="flex items-center space-x-2">
+                                <i className="fas fa-shopping-cart text-lg"></i>
+                                <span>My purchase history</span>
+                            </Link>
+                        </button>
+                        <div className="py-2 border-t ml-1">
+                            <Link
+                                to="/sign-out"
+                                className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
+                            >
+                                <i className="fas fa-sign-out-alt w-5"></i>
+                                <span className="ml-3">Sign out</span>
+                            </Link>
+                        </div>
+                    </nav>
+                </div>
+
+                {/* Purchase History Content */}
+                <div className="w-3/4 bg-white bg-opacity-5 p-8 ml-32 mt-11">
+                        <button className=" text-black shadow-sm p-4 shadow-black opacity-100">
+                            My orders
+                        </button>
+                        <div className="border-b border-gray-800 flex items-center space-x-6 text-sm font-medium mt-2"></div>
+                    </div>
+            </div>
+        </div>
+    );
 };
 
-export default Header;
+export default History; 

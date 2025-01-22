@@ -176,6 +176,12 @@ const CheckCard = () => {
                                     <h2 className="font-bold">Estimated Total</h2>
                                     <p>${subtotal.toFixed(2)}</p>
                                 </div>
+                                <Link to={"/checkout"}>
+                                    <button className="bg-[#019B7E] text-white font-bold py-2 px-4 rounded w-full mb-4 hover:bg-green-700"
+                                        type="submit">
+                                        Checkout
+                                    </button>
+                                </Link>
                                 <Link to="/order-summary1">
                                     <p className="text-gray-600 text-base">
                                         *Delivery Fee will be calculated after the checkout step is
