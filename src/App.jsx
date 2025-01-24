@@ -66,6 +66,7 @@ function App() {
     <Router>
       <div className="">
         <Routes>
+          <Route path="/" element={<MainLayout />} />
           <Route path="/sign-out" element={<MainLayout />} />
           <Route path="/check-card" element={<CheckCard />} />
           <Route path="/checkout" element={<OrderSummary />} />
