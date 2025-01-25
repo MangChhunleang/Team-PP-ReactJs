@@ -19,8 +19,9 @@ import DetailTents from "./components/DetailTents";
 import Profile from "./components/Profile";
 import History from "./components/History";
 import Sidebar from "./components/Sidebar";
-
-
+import MainSleeps from "./components/MainSleeps";
+import SecondSleeps from "./components/SecondSleeps";
+import Detailsleeps from "./components/DetailSleeps";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -83,6 +84,9 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/history" element={<History />} />
           <Route path="/sidebar" element={<Sidebar />} />
+          <Route path="/main-sleeps" element={<MainSleeps />} />
+          <Route path="/second-sleeps" element={<SecondSleeps />} />
+          <Route path="/detail-sleeps" element={<Detailsleeps />} />
         </Routes>
       </div>
     </Router>

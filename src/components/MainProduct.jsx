@@ -19,7 +19,7 @@ const MainProduct = () => {
 
 
             {/* <!-- Sleeping --> */}
-            <a href="">
+            <Link to={"/main-sleeps"}>
                 <div className="relative group hover:shadow-lg hover:shadow-black/50 transition-shadow duration-300 rounded-lg">
                     <img src="src/assets/sleep/SLEEPING-23.webp" alt="Sleeping"
                         className="w-full h-full object-cover rounded-lg group-hover:brightness-75 transition duration-300" />
@@ -28,7 +28,7 @@ const MainProduct = () => {
                             className="text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">SLEEPING</span>
                     </div>
                 </div>
-            </a>
+                </Link>
 
 
             {/* <!-- Clothing --> */}

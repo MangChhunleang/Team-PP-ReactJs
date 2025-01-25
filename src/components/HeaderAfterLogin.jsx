@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 
 const HeaderAfterLogin = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  // Sample product data (you should replace this with your actual product data)
+  const products = [
+    { id: 1, name: "1 Man Tent", category: "tents",},
+    { id: 2, name: "SLEEPING BAGS SINGLE", category: "sleeping",},
+    { id: 3, name: "2 MAN TENTS", category: "tents",},
+    { id: 4, name: "3 MAN TENTS", category: "tents",},
+    // Add more products...
+  ];
+
+  const handleSearch = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    if (query.trim() === "") {
+      setSearchResults([]);
+      return;
+    }
+
+    // Filter products based on search query
+    const filtered = products.filter(product => 
+      product.name.toLowerCase().includes(query.toLowerCase())
+    );
+    setSearchResults(filtered);
+  };
+
   const toggleVisibility = (event, id) => {
     const dropdown = document.getElementById(id);
     if (dropdown) {
@@ -24,15 +52,37 @@ const HeaderAfterLogin = () => {
         </div>
 
         {/* Search Bar */}
-        <div className="flex-grow mx-5 text-lg">
+        <div className="flex-grow mx-5 text-lg relative">
           <div className="relative">
             <input
               type="text"
+              value={searchQuery}
+              onChange={handleSearch}
               placeholder="Search products"
               className="w-full py-2 pl-12 pr-4 border-2 border-gray-300 rounded-lg bg-gray-100 text-gray-600 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <i className="fas fa-search absolute top-1/2 transform -translate-y-1/2 left-4 text-gray-500"></i>
           </div>
+
+          {/* Search Results Dropdown */}
+          {searchResults.length > 0 && searchQuery && (
+            <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg">
+              {searchResults.map(product => (
+                <Link 
+                  key={product.id}
+                  to={product.category === "tents" ? "/second-tents" : 
+                      product.category === "sleeping" ? "/second-sleeps" : 
+                      `/product/${product.id}`} 
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  <div className="flex justify-between items-center">
+                    <span>{product.name}</span>
+                    <span className="text-[#019B7E] font-bold">${product.price}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* User Icon and Basket */}
@@ -123,21 +173,19 @@ const HeaderAfterLogin = () => {
                   <hr className="mt-2" />
                   <ul className="text-gray-600 space-y-1">
                     <li>
-                      <a
-                        href="#"
+                      <Link to={"/second-tents"}
                         className="hover:text-black text-[#666666D9] text-[9px]"
                       >
                         1MAN TENTS
-                      </a>
+                        </Link>
                     </li>
                     <hr className="mt-2" />
                     <li>
-                      <a
-                        href="#"
+                    <Link to={"/second-tents"}
                         className="hover:text-black text-[#666666D9] text-[9px]"
                       >
                         2MAN TENTS
-                      </a>
+                        </Link>
                     </li>
                     <hr className="mt-2" />
                     <li>
@@ -347,12 +395,11 @@ const HeaderAfterLogin = () => {
                   <hr className="mt-2" />
                   <ul className="text-gray-600 text-sm space-y-1">
                     <li>
-                      <a
-                        href="#"
+                      <Link to={"/second-sleeps"}
                         className="hover:text-black text-[#666666D9] text-[9px]"
                       >
                         SLEEPING BAGS SINGLE
-                      </a>
+                        </Link>
                     </li>
                     <hr className="mt-2" />
                     <li>

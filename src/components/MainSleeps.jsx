@@ -1,10 +1,99 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom';
+import { Footer } from './Footer';
 
-const Navbar = () => {
-  return (
-    <div>
-      <nav className="bg-white py-2">
+
+const MainSleeps = () => {
+    return (
+        <div>
+            <header className="flex items-center justify-between p-4 bg-white shadow-md border-b border-gray-200">
+                {/* Logo */}
+                <div className="flex items-center space-x-2">
+                    <img src="src/assets/homme/Camphaven.png" alt="Logo" className="w-17 h-12" />
+                </div>
+
+                {/* Search Bar */}
+                <div className="flex-grow mx-5 text-lg">
+                    <div className="relative">
+                        <input
+                            type="text"
+                            placeholder="Search products"
+                            className="w-full py-2 pl-12 pr-4 border-2 border-gray-300 rounded-lg bg-gray-100 text-gray-600 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+                        />
+                        <i className="fas fa-search absolute top-1/2 transform -translate-y-1/2 left-4 text-gray-500"></i>
+                    </div>
+                </div>
+
+                {/* User Icon and Basket */}
+                <div className="flex items-center space-x-6 text-lg">
+                    {/* Profile Icon */}
+                    <div className="relative">
+                        <button onClick={() => toggleVisibility('dropdown')}>
+                            <div className="relative flex items-center justify-center w-[50px] h-10 rounded-xl text-gray-600 hover:bg-blue-200">
+                                <i className="fas fa-user-circle mr-1 text-2xl"></i>
+                                <i className="fa-solid fa-caret-down"></i>
+                            </div>
+                        </button>
+                        {/* Dropdown Menu */}
+                        <div
+                            id="dropdown"
+                            className="hidden absolute left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                        >
+                            <div className="p-4 border-b">
+                                <div className="flex items-center space-x-3">
+                                    <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
+                                        <i className="far fa-user text-gray-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p className="font-medium text-gray-800">Miker</p>
+                                        <p className="text-sm text-gray-500">View your profile</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="py-2">
+                                <a
+                                    href="./myProfile.html"
+                                    className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
+                                >
+                                    <i className="fas fa-user-circle"></i>
+                                    <span className="ml-3">My Profile</span>
+                                </a>
+                                <a
+                                    href="./History.html"
+                                    className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
+                                >
+                                    <i className="far fa-file-alt w-5"></i>
+                                    <span className="ml-3">Purchase History</span>
+                                </a>
+                            </div>
+                            <div className="py-2 border-t">
+                                <a
+                                    href=""
+                                    className="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
+                                >
+                                    <i className="fas fa-sign-out-alt w-5"></i>
+                                    <span className="ml-3">Sign Out</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center text-gray-700">
+                        <span>Basket / $30.00</span>
+                        <a href="./checkout1.html">
+                            <i className="fas fa-shopping-cart ml-2">
+                                <span className="absolute top-4 inline-flex px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
+                                    1
+                                </span>
+                            </i>
+                        </a>
+                    </div>
+                    <button className="px-6 py-2 bg-[#019B7E] text-white rounded-full hover:bg-green-700">
+                        CHECKOUT
+                    </button>
+                </div>
+            </header>
+            <nav className="bg-white py-2">
         <div className="flex justify-center space-x-2 text-xs text-gray-300 font-semibold tracking-wide">
           <div className="relative group z-10">
             <button className="font-lato text-[10px] focus:outline-none text-[#666666D9] hover:text-black">
@@ -21,7 +110,7 @@ const Navbar = () => {
                   <hr className="mt-2" />
                   <ul className="text-gray-600 space-y-1">
                     <li>
-                      <Link to={""}
+                      <Link to={"/maintents"}
                         className="hover:text-black text-[#666666D9] text-[9px]"
                       >
                         1MAN TENTS
@@ -244,7 +333,7 @@ const Navbar = () => {
                   <hr className="mt-2" />
                   <ul className="text-gray-600 text-sm space-y-1">
                     <li>
-                      <Link to={"/second-sleeps"}
+                      <Link to={"/main-sleeps"}
                         className="hover:text-black text-[#666666D9] text-[9px]"
                       >
                         SLEEPING BAGS SINGLE
@@ -1308,8 +1397,100 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </div>
-  );
-};
 
-export default Navbar;
+            
+            <div className="mx-auto grid grid-cols-6 gap-4 p-4">
+                {/* <!-- Item --> */}
+                <Link to={"/second-sleeps"}>
+                    <div className="relative bg-white group font-bold">
+                        <img src="src/assets/sleep/sleep1.webp" alt="1 Man Tent" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black bg-opacity-15 flex items-center justify-center group-hover:bg-opacity-50 transition duration-300">
+                            <span className="text-white group-hover:text-white-500 transition duration-300">SLEEPING BAGS SINGLE</span>
+                        </div>
+                    </div>
+                    </Link>
+                {/* <!-- Item --> */}
+                <a href="">
+                    <div className="relative bg-white font-bold group">
+                        <img src="src/assets/sleep/sleep2.webp" alt="2 Man Tent" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black bg-opacity-15 flex items-center justify-center group-hover:bg-opacity-50 transition duration-300">
+                            <span className="text-white group-hover:text-white-500 transition duration-300">SLEEPING BAGS DOUBLE</span>
+                        </div>
+                    </div>
+                </a>
+                {/* <!-- Item --> */}
+                <a href="">
+                    <div className="relative bg-white font-bold group">
+                        <img src="src/assets/sleep/sleep3.webp" alt="3 Man Tent" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black bg-opacity-15 flex items-center justify-center group-hover:bg-opacity-50 transition duration-300">
+                            <span className="text-white group-hover:text-white-500 transition duration-300">AIRBEDS</span>
+                        </div>
+                    </div>
+                </a>
+                {/* <!-- Item --> */}
+                <a href="">
+                    <div className="relative bg-white font-bold group">
+                        <img src="src/assets/sleep/sleep4.webp" alt="4 Man Tent" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black bg-opacity-15 flex items-center justify-center group-hover:bg-opacity-50 transition duration-300">
+                            <span className="text-white group-hover:text-white-500 transition duration-300">SELF INFLATING MATS</span>
+                        </div>
+                    </div>
+                </a>
+                {/* <!-- Item --> */}
+                <a href="">
+                    <div className="relative bg-white font-bold group">
+                        <img src="src/assets/sleep/sleep5.webp" alt="Family Tents - Poled" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black bg-opacity-15 flex items-center justify-center group-hover:bg-opacity-50 transition duration-300">
+                            <span className="text-white group-hover:text-white-500 transition duration-300">FOAM ROLL MATS</span>
+                        </div>
+                    </div>
+                </a>
+                {/* <!-- Item --> */}
+                <a href="">
+                    <div className="relative bg-white font-bold group">
+                        <img src="src/assets/sleep/sleep6.webp" alt="Family Tents - Air" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black bg-opacity-15 flex items-center justify-center group-hover:bg-opacity-50 transition duration-300">
+                            <span className="text-white group-hover:text-white-500 transition duration-300 text-lg">CAMP BEDS</span>
+                        </div>
+                    </div>
+                </a>
+                {/* <!-- Row 2 --> */}
+                <a href="">
+                    <div className="relative bg-white font-bold group">
+                        <img src="src/assets/sleep/sleep7.webp" alt="Awnings - Poled" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black bg-opacity-15 flex items-center justify-center group-hover:bg-opacity-50 transition duration-300">
+                            <span className="text-white group-hover:text-white-500 transition duration-300 text-lg">AIR PUMPS</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div className="relative bg-white font-bold group">
+                        <img src="src/assets/sleep/sleep8.webp" alt="Awnings - Air" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black bg-opacity-15 flex items-center justify-center group-hover:bg-opacity-50 transition duration-300">
+                            <span className="text-white group-hover:text-white-500 transition duration-300 text-lg">BLANKETS</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div className="relative bg-white font-bold group">
+                        <img src="src/assets/sleep/sleep9.webp" alt="Utility Tents" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black bg-opacity-15 flex items-center justify-center group-hover:bg-opacity-50 transition duration-300">
+                            <span className="text-white group-hover:text-white-500 transition duration-300 text-lg">PILLOWS</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div className="relative bg-white font-bold group">
+                        <img src="src/assets/sleep/sleep10.webp" alt="Shelters" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black bg-opacity-15 flex items-center justify-center group-hover:bg-opacity-50 transition duration-300">
+                            <span className="text-white group-hover:text-white-500 transition duration-300 text-lg">NETS & LINERS</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <Footer />
+        </div>
+    )
+}
+
+export default MainSleeps
